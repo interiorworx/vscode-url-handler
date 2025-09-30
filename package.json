@@ -1,0 +1,71 @@
+{
+  "name": "vscode-url-handler",
+  "displayName": "VS Code URL Repo Opener",
+  "description": "Open local repos via URI and optionally checkout a branch.",
+  "version": "1.0.0",
+  "publisher": "interiorworx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/interiorworx/vscode-url-handler"
+  },
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "icon": "",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onUri",
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-url-handler.simulate",
+        "title": "URL Handler: Simulate Open"
+      },
+      {
+        "command": "vscode-url-handler.showLogs",
+        "title": "URL Handler: Show Logs"
+      },
+      {
+        "command": "vscode-url-handler.debugSearch",
+        "title": "URL Handler: Debug Search"
+      }
+    ],
+    "configuration": {
+      "title": "VS Code URL Repo Opener",
+      "properties": {
+        "vscodeUrlHandler.baseFolder": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Base folder to search for repositories (defaults to `${userHome}/Documents/Dev` if empty)."
+        },
+        "vscodeUrlHandler.maxDepth": {
+          "type": "number",
+          "default": 4,
+          "markdownDescription": "Max directory depth to search under the base folder."
+        },
+        "vscodeUrlHandler.debug": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Enable verbose logging to an Output channel for troubleshooting."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "lint": "echo 'No linter configured'"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@types/vscode": "^1.84.0",
+    "@vscode/vsce": "^3.6.1",
+    "typescript": "^5.4.2"
+  }
+}
