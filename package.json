@@ -1,8 +1,8 @@
 {
   "name": "vscode-url-handler",
-  "displayName": "VS Code URL Repo Opener",
+  "displayName": "VSCode URL Handler",
   "description": "Open local repos via URI and optionally checkout a branch.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "interiorworx",
   "repository": {
     "type": "git",
